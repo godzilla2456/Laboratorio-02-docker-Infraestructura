@@ -6,21 +6,21 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MESSAGE=Bienvenido, Andrea Tarazona
+      - MESSAGE=${MESSAGE}
 
   app2:
     build: ./api
     ports:
       - "3001:3000"
     environment:
-      - MESSAGE=Bienvenido, Andrea Tarazona 
+      - MESSAGE=${MESSAGE}
 
   app3:
     build: ./api
     ports:
       - "3002:3000"
     environment:
-      - MESSAGE=Bienvenido, Andrea Tarazona 
+      - MESSAGE=${MESSAGE}
 
   db:
     image: postgres:13

@@ -6,17 +6,34 @@ services:
     ports:
       - "3000:3000"
     environment:
-     - MESSAGE=Bienvenido, Andrea Tarazona 
+      - MESSAGE=Bienvenido, Andrea Tarazona
+
   app2:
     build: ./api
     ports:
       - "3001:3000"
     environment:
-     - MESSAGE=Bienvenido, Andrea Tarazona 
+      - MESSAGE=Bienvenido, Andrea Tarazona 
+
   app3:
     build: ./api
     ports:
       - "3002:3000"
     environment:
-     - MESSAGE=Bienvenido, Andrea Tarazona 
+      - MESSAGE=Bienvenido, Andrea Tarazona 
+
+  db:
+    image: postgres:13
+    container_name: db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
   

@@ -20,3 +20,39 @@
 - **Dejar vacio por el momento, en las páginas que estoy revisando esos dos son los que más se repiten, al finalizar la actividad retornar a este punto**
 
 
+## COMANDOS DE DESPLIEGUE
+- DOCKER
+
+docker pull nmatsui/hello-world-api
+docker run -d --rm -p 3000:3000 nmatsui/hello-world-api
+
+
+
+## Arquitectura y Servicios
+
+- **app1**: API Node.js - Puerto `3000:3000`
+- **app2**: API Node.js - Puerto `3001:3000`
+- **app3**: API Node.js - Puerto `3002:3000`
+- **db**: PostgreSQL 13 - Puerto `5432:5432` con volumen persistente `db_data`
+
+---
+
+## Variables de Entorno
+
+El proyecto desacopla la configuración mediante un archivo `.env` local (ignorado por Git). Se provee la plantilla `.env.example`:
+
+| Variable | Descripción | Valor de Ejemplo |
+| :--- | :--- | :--- |
+| `MESSAGE` | Mensaje devuelto por los endpoints de las réplicas | `"Bienvenida, Estudiante"` |
+| `POSTGRES_USER` | Usuario de base de datos | `user` |
+| `POSTGRES_PASSWORD` | Contraseña de PostgreSQL | `password` |
+| `POSTGRES_DB` | Nombre de la base de datos | `mydatabase` |
+
+---
+
+## Instrucciones de Despliegue
+
+### 1. Configurar variables de entorno
+Copiar el archivo de plantilla y definir las variables:
+```bash
+cp .env.example .env

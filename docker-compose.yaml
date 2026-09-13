@@ -1,0 +1,22 @@
+version: "3.8"    
+
+services:
+  app1:
+    build: ./api
+    ports:
+      - "3000:3000"
+    environment:
+     - MESSAGE=Bienvenido, Andrea Tarazona 
+  app2:
+    build: ./api
+    ports:
+      - "3001:3000"
+    environment:
+     - MESSAGE=Bienvenido, Andrea Tarazona 
+  app3:
+    build: ./api
+    ports:
+      - "3002:3000"
+    environment:
+     - MESSAGE=Bienvenido, Andrea Tarazona 
+  
